@@ -26,7 +26,7 @@ import org.apache.ignite.configuration.CacheConfiguration;
 public class Application {
 
     public static void main(String... args) throws InterruptedException {
-        try (Ignite ignite = Ignition.start()) {
+        try (Ignite ignite = Ignition.start("config.xml")) {
             CacheConfiguration<Integer, byte[]> cacheConfiguration = new CacheConfiguration<>();
             cacheConfiguration.setName("TEST_CACHE");
             cacheConfiguration.setAffinity(new RendezvousAffinityFunction(false, 5));
